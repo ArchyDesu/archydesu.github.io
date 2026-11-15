@@ -390,16 +390,16 @@ nav a {
 */
 
 .section-title {
-  text-align: center;
-  position: relative;
+    text-align: center;
+    position: relative;
 
-  padding: clamp(0.8rem, 1vw, 2rem);
+    padding: clamp(0.8rem, 1vw, 2rem);
 
-  background-color: var(--color-primary);
+    background-image: linear-gradient(to right, var(--color-secondary) , var(--color-primary));
 }
 
 .section-label {
-  color: var(--color-text-inverted);
+    color: var(--color-text-inverted);
 }
 
 .section-introduction {
@@ -407,13 +407,39 @@ nav a {
     flex-direction: column;
 
     justify-content: space-evenly;
-    
-    align-items: center;
 
     max-width: 45rem;
-    margin: clamp(1rem, 2vw, 2rem) auto clamp(1rem, 2vw, 2rem);
+    padding: clamp(1rem, 2vw, 2rem);
+}
 
-    text-align: center;
+
+
+.section-title-2 {
+    padding: clamp(0.8rem, 1vw, 2rem);
+}
+
+.section-label-2 {
+    position: relative;
+    color: var(--color-primary);
+    padding-left: clamp(2.5rem, calc(3vw + 4.9rem), 16rem);
+}
+
+.section-label-2::after {
+    content: "";
+
+    position: absolute;
+    bottom: 50%;
+    left: clamp(2.5rem, calc(3vw), 12rem);
+
+    width: 3rem;
+    height: 0.1em;
+
+    background-color: var(--color-primary);
+}
+
+.section-introduction-2 {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
 .section-link {
@@ -477,8 +503,33 @@ nav a {
 */
 
 .why-us {
-    background-color: var(--color-surface);
+    position: relative;
+    background-image: linear-gradient(to right, var(--color-secondary) , var(--color-primary));
+}
+
+.why-us-banner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+    align-items: center;
     
+    padding: clamp(2rem, 2vw, 4rem)
+             clamp(2.5rem, 3vw, 5rem);                  
+    gap: clamp(2rem, 2vw, 4rem);
+}
+
+.why-us-banner .section-title-2 h2 {
+    color: var(--color-text-inverted);
+    font-size: 2rem;
+    text-align: center;
+}
+.why-us-banner h2 {
+    color: var(--color-text-inverted);
+    text-align: center;
+}
+
+.why-us-banner p {
+    justify-content: space-evenly;
+    color: var(--color-text-inverted);
 }
 
 .value-list {
@@ -489,7 +540,6 @@ nav a {
              clamp(2.5rem, 3vw, 5rem);
                       
     gap: clamp(1rem, 2vw, 2rem);
-    
 }
 
 .value-item {
@@ -521,14 +571,44 @@ nav a {
     border-radius: 0.75rem;
 }
 
+.why-us::after {
+  content: "";
+
+  position: absolute;
+
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.25);
+
+  pointer-events: none;  
+}
+
 /* ============================================
               Patient Info Section
    ============================================
 */
 
+.patient-info-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+    align-items: center;
+    
+    padding: clamp(2rem, 2vw, 4rem)
+             clamp(2.5rem, 3vw, 5rem);
+                      
+    gap: clamp(2rem, 2vw, 4rem);
+
+    background-color: var(--color-background);  
+}
+
+
 .patient-info-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
 
     padding: clamp(2rem, 2vw, 4rem)
              clamp(2.5rem, 3vw, 5rem);
@@ -544,7 +624,7 @@ nav a {
     border: 2px solid var(--color-border);
     border-radius: 0.75rem;
 
-    background-color: var(--color-background);
+    background-color: var(--color-surface);
 }
 
 .patient-info-item::after {
@@ -569,6 +649,10 @@ nav a {
    ============================================
 */
 
+.visit {
+    background-color: var(--color-surface);
+}
+
 .visit-content {
     display: grid;
     grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
@@ -578,8 +662,6 @@ nav a {
              clamp(2.5rem, 3vw, 5rem);
                       
     gap: clamp(2rem, 2vw, 4rem);
-
-    background-color: var(--color-background);  
 }
 
 .visit-information{
