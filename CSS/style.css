@@ -74,13 +74,16 @@ nav a {
 
     padding: clamp(0.75rem, 1.5vw, 1.5rem)
              clamp(1rem, 5vw, 5rem);
-    column-gap: clamp(1rem, 7vw, 5rem);
+    column-gap: clamp(1rem, 5vw, 5rem);
 
-    background-color: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    background-color: transparent;
 }
-
-
 
 
 /* ============================================
@@ -194,6 +197,7 @@ nav a {
     text-decoration: none;
     font-size: clamp(0.9rem, 1vw, 1rem);
     font-weight: 600;
+    text-align: center;
 
     border-radius: 0.5rem;
 }
@@ -218,6 +222,9 @@ nav a {
     min-height: calc(75vh - 5rem);
 
     background-color: var(--color-background);
+
+    margin-top:  clamp(-2rem, 2vw, -3rem);
+    padding-top:  clamp(2rem, 2vw, 1rem);
 }
 
 .hero::after {
@@ -244,7 +251,9 @@ nav a {
 .hero-content {
     max-width: clamp(30rem, 40vw, 40rem);
 
-    margin: clamp(1.5rem, 8vw, 8rem);
+    margin: clamp(6rem, 10vw, 10rem)
+             clamp(1.5rem, 8vw, 8rem)
+             clamp(1.5rem, 4vw, 4rem);
 }
 
 .hero-label {
