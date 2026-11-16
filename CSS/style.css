@@ -83,7 +83,6 @@ nav a {
     background-color: transparent;
 }
 
-
 /* ============================================
                      Logo
    ============================================
@@ -112,6 +111,9 @@ nav a {
     display: block;
 }
 
+.mobile-nav-header .logo span {
+    color: var(--color-primary);
+}
 
 /* ============================================
                  Main Navigation
@@ -124,10 +126,10 @@ nav a {
     display: flex;
     align-items: center;
 
-    gap: clamp(0.75rem, 1.2vw, 1.5rem);
+    gap: clamp(0.7rem, 1.5vw, 2rem);
 }
 
-.main-nav a {
+.main-nav a:not(.nav-register){
     position: relative;
 
     color: var(--color-text);
@@ -190,46 +192,70 @@ nav a {
 
     .site-header {
         grid-template-columns: 1fr auto;
-
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
         padding: 1rem 1.25rem;
+
+        background-color: var(--color-surface);
     }
 
     .menu-toggle {
         display: flex;
         justify-self: end;
     }
+    
+     .site-header {
+        grid-template-columns: 1fr auto;
+    }
 
+    .site-header.menu-open {
+        background-color: var(--color-surface);
+    }
+    
     .main-nav {
-        position: absolute;
+        position: fixed;
 
-        top: 100%;
+        top: 0;
         left: 0;
 
-        width: 100%;
+        width: 0;
+        height: 100vh;
+  
 
-        display: none;
-
+        overflow: hidden;
+        display: flex;        
         flex-direction: column;
         align-items: stretch;
-
-        padding: 1rem 1.25rem 1.5rem;
+       
+        transition: 
+            width 0.3s ease,
+            height 0.3s ease,
+            padding 0.3s ease;
 
         background-color: var(--color-surface);
 
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        padding: 1rem 0 1rem;
+
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);  
+        
+        pointer-events: all;
+    }
+
+    .nav-open {
+        width: 50vw;         
+        height: 100vh;
+        padding: 1rem 1rem 1rem;
     }
 
     .main-nav a {
-        padding: 0.9rem 0;
+        margin: clamp(0.85rem, 1.2vw, 1.5rem) 0;
 
         text-align: left;
     }
 
-    .nav-register {
-        margin-top: 0.5rem;
-
-        width: 100%;
-    }
 }
 
 /* ============================================
@@ -300,11 +326,59 @@ nav a {
 .nav-register {
     display: none;
 }
+.mobile-nav-header {
+    display: none;
+}
 
 @media (max-width: 768px) {
+    
+    .register {
+        display: none;
+    }
+
+    .mobile-nav-header {
+        display: block;
+    }
+
     .nav-register {
-        justify-self: end;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+  
+        width: 0;
+
+        margin-top: clamp(1rem, 1.9vw, 1.6rem);
+        padding: clamp(0.6rem, 1.4vw, 1rem)
+                clamp(1rem, 1.9vw, 1.6rem);
+
+        background-color: var(--color-primary);
+        color: var(--color-primary);
+
+        text-decoration: none;
+        font-size: clamp(0.65rem, 1vw, 1rem);
+        font-weight: 600;
+        text-align: center;
+        white-space: nowrap;
+
+        border-radius: 0.5rem;
+
+        transition: padding 0.3s ease,
+                    color 0.3s, ease,
+                    width 0.3s ease;
         
+    }
+
+    .nav-register:hover {
+        background-color: var(--color-secondary);
+    }
+
+    .nav-register-active {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+
+        width: 100%;
+
         padding: clamp(0.6rem, 1.4vw, 1rem)
                 clamp(1rem, 1.9vw, 1.6rem);
 
@@ -312,20 +386,22 @@ nav a {
         color: var(--color-surface);
 
         text-decoration: none;
-        font-size: clamp(0.9rem, 1vw, 1rem);
+        font-size: clamp(0.65rem, 1vw, 1rem);
         font-weight: 600;
         text-align: center;
 
         border-radius: 0.5rem;
+        
     }
 
-    .nav-register:hover {
-        background-color: var(--color-secondary);
-    }
 
-    .register {
-        display: none;
-    }
+
+
+
+
+
+
+
 
 }
 
@@ -454,9 +530,6 @@ nav a {
     border: 2px solid var(--color-primary);
     border-radius: 2rem;
 }
-
-
-
 
 .carousel {
   display: flex;
