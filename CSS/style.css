@@ -143,6 +143,94 @@ nav a {
     color: var(--color-secondary);
 }
 
+/* ============================================
+              Mobile Navigation
+   ============================================
+*/
+
+.menu-toggle {
+    display: none;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.35rem;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 1.5rem;
+    height: 2px;
+
+    background-color: var(--color-primary);
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+/* --------------------------------------------
+                Mobile Behavior
+   --------------------------------------------
+*/
+
+@media (max-width: 768px) {
+
+    .site-header {
+        grid-template-columns: 1fr auto;
+
+        padding: 1rem 1.25rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+        justify-self: end;
+    }
+
+    .main-nav {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 1rem 1.25rem 1.5rem;
+
+        background-color: var(--color-surface);
+
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .main-nav a {
+        padding: 0.9rem 0;
+
+        text-align: left;
+    }
+
+    .nav-register {
+        margin-top: 0.5rem;
+
+        width: 100%;
+    }
+}
 
 /* ============================================
               Navigation Underline
@@ -183,7 +271,7 @@ nav a {
    ============================================
 */
 
-.nav-register {
+.register {
     justify-self: end;
     
     padding: clamp(0.6rem, 1.4vw, 1rem)
@@ -200,101 +288,45 @@ nav a {
     border-radius: 0.5rem;
 }
 
-.nav-register:hover {
+.register:hover {
     background-color: var(--color-secondary);
 }
 
-/* ============================================
-                  Footer
-   ============================================
+/* --------------------------------------------
+                Mobile Behavior
+   --------------------------------------------
 */
 
-.site-footer {
-    position: relative;
-    background-color: var(--color-primary);
-    color: var(--color-surface);
+.nav-register {
+    display: none;
 }
 
-.site-footer:after {
-    content: "";
+@media (max-width: 768px) {
+    .nav-register {
+        justify-self: end;
+        
+        padding: clamp(0.6rem, 1.4vw, 1rem)
+                clamp(1rem, 1.9vw, 1.6rem);
 
-    position: absolute;
+        background-color: var(--color-primary);
+        color: var(--color-surface);
 
-    height: 100%;
-    width: 100%;
-    bottom: 100%;
-    left: 0;
-    z-index: 1;
+        text-decoration: none;
+        font-size: clamp(0.9rem, 1vw, 1rem);
+        font-weight: 600;
+        text-align: center;
 
-    box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 0.5rem;
+    }
 
-    pointer-events: none;
-}
+    .nav-register:hover {
+        background-color: var(--color-secondary);
+    }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: clamp(2rem, 4vw, 5rem);
+    .register {
+        display: none;
+    }
 
-    padding: clamp(2.5rem, 5vw, 4rem)
-             clamp(1.5rem, 6vw, 6rem);
-}
-
-.footer-brand {
-    max-width: 25rem;
-}
-
-.footer-brand .logo {
-    color: var(--color-surface);
-}
-
-.footer-brand p {
-    margin-top: 1rem;
-    color: var(--clear-text-footer);
-    line-height: 1.6;
-}
-
-.footer-links,
-.footer-contact {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
-}
-
-.footer-links h3,
-.footer-contact h3 {
-    margin: 0 0 0.5rem;
-    color: var(--color-surface);
-}
-
-.footer-links a {
-    color: var(--clear-text-footer);
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    color: var(--color-accent);
-}
-
-.footer-contact p {
-    margin: 0;
-    color: var(--clear-text-footer);
-    line-height: 1.5;
-}
-
-.footer-bottom {
-    padding: 1rem clamp(1.5rem, 6vw, 6rem);
-
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-
-    text-align: center;
-}
-
-.footer-bottom p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.85rem;
 }
 
 /* ============================================
@@ -312,11 +344,11 @@ nav a {
 }
 
 .basic-title-h2 {
-    font-size: clamp(0.85rem, calc(1.4vh + 1.4vw), 3rem);
+    font-size: clamp(0.65rem, calc(1.2vh + 1.2vw), 2.5rem);
 }
 
 .basic-title-h3 {
-    font-size: clamp(0.55rem, calc(1.2vh + 1.2vw), 2rem);
+    font-size: clamp(0.45rem, calc(1.1vh + 1.1vw), 2rem);
 }
 
 /* --------------------------------------------
@@ -350,7 +382,7 @@ nav a {
 
 .section-label {
     color: var(--color-text-inverted);
-    font-size: clamp(0.5rem, calc(1vh + 1vw), 2rem);
+    font-size: clamp(0.75rem, calc(1.4vh + 1.4vw), 3rem);
 }
 
 .section-introduction {
@@ -376,6 +408,7 @@ nav a {
     position: relative;
     color: var(--color-primary);
     padding-left: clamp(2.5rem, calc(3vw + 4.9rem), 16rem);
+    font-size: clamp(0.75rem, calc(1.2vh + 1.2vw), 2rem);
 }
 
 .section-label-2::after {
@@ -456,4 +489,116 @@ nav a {
   padding: 2rem;
   box-sizing: border-box;
   min-height: 200px;
+}
+
+
+/* ============================================
+                  Footer
+   ============================================
+*/
+
+.site-footer {
+    position: relative;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.site-footer:after {
+    content: "";
+
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    bottom: 100%;
+    left: 0;
+    z-index: 1;
+
+    box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.25);
+
+    pointer-events: none;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: clamp(2rem, 4vw, 5rem);
+
+    padding: clamp(2.5rem, 5vw, 4rem)
+             clamp(1.5rem, 6vw, 6rem);
+}
+
+.footer-brand {
+    max-width: 25rem;
+}
+
+.footer-brand .logo {
+    color: var(--color-surface);
+}
+
+.footer-brand p {
+    margin-top: 1rem;
+    color: var(--clear-text-footer);
+    line-height: 1.6;
+}
+
+.footer-links,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    margin: 0 0 0.5rem;
+    color: var(--color-surface);
+}
+
+.footer-links a {
+    color: var(--clear-text-footer);
+    text-decoration: none;
+    font-size: clamp(0.4rem, calc(1.1vh + 1.1vw), 1.75rem);
+}
+
+.footer-links a:hover {
+    color: var(--color-accent);
+}
+
+.footer-contact p {
+    margin: 0;
+    color: var(--clear-text-footer);
+    line-height: 1.5;
+    font-size: clamp(0.4rem, calc(1.1vh + 1.1vw), 1.75rem);
+}
+
+.footer-bottom {
+    padding: 1rem clamp(1.5rem, 6vw, 6rem);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+}
+
+/* --------------------------------------------
+            Footer Mobile Behavior
+   --------------------------------------------
+*/
+
+@media screen and (max-width: 767px) {
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(2rem, 4vw, 5rem);
+
+        padding: clamp(2.5rem, 5vw, 4rem)
+                clamp(1.5rem, 6vw, 6rem);
+    }
 }

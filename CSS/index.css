@@ -184,9 +184,9 @@
     align-items: center;
     
     padding: clamp(2rem, 2vw, 4rem)
-             clamp(2.5rem, 3vw, 5rem);
+            clamp(1.5rem, 2vw, 4rem);
                       
-    gap: clamp(2rem, 2vw, 4rem);
+    gap: clamp(1.5rem, 2vw, 4rem);
 
     background-color: var(--color-background);  
 }
@@ -203,12 +203,13 @@
 
 .why-us-banner {
     display: grid;
-    grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
     align-items: center;
     
     padding: clamp(2rem, 2vw, 4rem)
-            clamp(2.5rem, 3vw, 5rem);                  
-    gap: clamp(2rem, 2vw, 4rem);
+            clamp(1.5rem, 2vw, 4rem);  
+
+    gap: clamp(1.5rem, 2vw, 4rem);
 }
 
 .why-us-banner .section-title-2 {
@@ -216,7 +217,7 @@
     flex-direction: column;
     justify-content: space-evenly;
 
-    gap: clamp(2rem, 2vw, 4rem);
+    gap: clamp(1.5rem, 2vw, 4rem);
 }
 
 .why-us-banner .section-title-2 h2 {
@@ -224,7 +225,6 @@
     color: var(--color-text-inverted);
     margin: 0;
 
-    font-size: clamp(1rem, 2vw, 4rem);
     line-height: 1.1;
 }
 
@@ -266,8 +266,8 @@
 
 .value-item {
     position: relative;
-    padding: clamp(1rem, 1vw, 2rem)
-             clamp(1.25rem, 1.5vw, 2.5rem);
+    padding: clamp(0.85rem, 1.25vw, 2rem)
+             clamp(0.85rem, 1.25vw, 2rem);
 
     border: 2px solid var(--color-border);
     border-radius: 0.75rem;
@@ -319,7 +319,7 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
 
     padding: clamp(2rem, 2vw, 4rem)
-             clamp(2.5rem, 3vw, 5rem);
+            clamp(1.5rem, 2vw, 4rem);  
 
     gap: clamp(1rem, 2vw, 2rem);
 }
@@ -343,11 +343,11 @@
     align-items: center;
     
     padding:0
+            clamp(1.5rem, 2vw, 4rem)  
             clamp(2.5rem, 3vw, 5rem)
-            clamp(2.5rem, 3vw, 5rem)
-            clamp(2.5rem, 3vw, 5rem);
+            clamp(1.5rem, 2vw, 4rem);
                       
-    gap: clamp(2rem, 2vw, 4rem);
+    gap: clamp(1.5rem, 2vw, 4rem);
 
     background-color: var(--color-background);  
 }
@@ -365,8 +365,8 @@
 
 .patient-info-item {
     position: relative;
-    padding: clamp(1rem, 1vw, 2rem)
-             clamp(1.25rem, 1.5vw, 2.5rem);
+    padding: clamp(0.85rem, 1.25vw, 2rem)
+             clamp(0.85rem, 1.25vw, 2rem);
 
     border: 2px solid var(--color-border);
     border-radius: 0.75rem;
@@ -406,11 +406,11 @@
     align-items: center;
     
     padding:0
+            clamp(1.5rem, 2vw, 4rem) 
             clamp(2.5rem, 3vw, 5rem)
-            clamp(2.5rem, 3vw, 5rem)
-            clamp(2.5rem, 3vw, 5rem);
+            clamp(1.5rem, 2vw, 4rem);
                       
-    gap: clamp(2rem, 2vw, 4rem);
+    gap: clamp(1.5rem, 2vw, 4rem);
 }
 
 /* --------------------------------------------
@@ -422,13 +422,26 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    padding: clamp(2rem, 2vw, 4rem)
-             clamp(2.5rem, 3vw, 5rem);
+    padding: clamp(0.85rem, 1.25vw, 2rem)
+             clamp(0.85rem, 1.25vw, 2rem);
                       
     gap: clamp(1rem, 2vw, 2rem);
 }
 
 @media screen and (max-width: 767px) {
+    .visit-content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+        
+        padding:0
+                clamp(1.5rem, 2vw, 4rem) 
+                clamp(2.5rem, 3vw, 5rem)
+                clamp(1.5rem, 2vw, 4rem);
+                        
+        gap: clamp(1.5rem, 2vw, 4rem);
+    }
+
     .visit-information {
         grid-template-columns: 1fr;
         
