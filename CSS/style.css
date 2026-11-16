@@ -207,10 +207,6 @@ nav a {
         justify-self: end;
     }
     
-     .site-header {
-        grid-template-columns: 1fr auto;
-    }
-
     .site-header.menu-open {
         background-color: var(--color-surface);
     }
@@ -363,7 +359,7 @@ nav a {
         border-radius: 0.5rem;
 
         transition: padding 0.3s ease,
-                    color 0.3s, ease,
+                    color 0.1s ease,
                     width 0.3s ease;
         
     }
@@ -393,16 +389,6 @@ nav a {
         border-radius: 0.5rem;
         
     }
-
-
-
-
-
-
-
-
-
-
 }
 
 /* ============================================

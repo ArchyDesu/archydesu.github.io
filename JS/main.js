@@ -21,8 +21,7 @@ hamburgerIcon.addEventListener('click', () => {
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         mainNav.classList.remove('nav-open');
-        registButtonNav.classList.toggle('nav-register-active')           
-    });
+        registButtonNav.classList.remove('nav-register-active');    });
 });
 
 
