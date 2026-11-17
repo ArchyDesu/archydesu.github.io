@@ -212,29 +212,38 @@
 
     .profile-content {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: center;
-        position: relative;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+        grid-auto-flow: dense;
 
-        grid-template-areas: "main sidebar"; 
+        width: 100%;
+        height: 100%;
+
         padding: 0;
     }
 
     .profile-image {
         position: relative;
+
+        width: 100%;
         height: 100%;
-        order: 1;
-        overflow: hidden;  
-        margin-left: -16vw;
-        border-radius: 0;  
+
+        margin: 0;
+        border-radius: 0;
+        overflow: hidden;
+        grid-column: 1;
     }
 
     .profile-text {
-        margin: clamp(0.75rem, 2vw, 2rem)
-                clamp(0.75rem, 2vw, 2rem)
-                clamp(0.75rem, 2vw, 2rem)
-                -16vw;
-        order: 2; 
+        margin: 0;
+        padding:clamp(1.5rem, 5vw, 3rem)
+                clamp(1.5rem, 5vw, 3rem)
+                clamp(1.5rem, 5vw, 3rem)
+                0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-column: 2;       
     }
 
     .profile-image img {
@@ -266,6 +275,10 @@
                 Purpose Section
    ============================================
 */
+.mission-vision {
+    background-image: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+}
+
 
 .mission-vision .section-title-1 {
     display: flex;
@@ -275,14 +288,20 @@
             clamp(1rem, 1.25vw, 4rem); 
 }
 
-.mission-vision .section-title-1 h2{
-    color: var(--color-text)
+.purpose-item {
+    padding: clamp(0.85rem, 1.25vw, 2rem)
+             clamp(0.85rem, 1.25vw, 2rem);
+
+    border: 2px solid var(--color-border);
+    border-radius: 0.75rem;
+
+    background-color: var(--color-background);    
 }
 
 .mission-vision-content {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: start; 
+    align-items: stretch;
 
     padding:0
             clamp(1.25rem, 4vw, 4rem);
@@ -301,8 +320,181 @@
         align-items: start; 
 
         padding:0
-                clamp(1.25rem, 4vw, 4rem);
+                clamp(2rem, 4vw, 4rem)
+                clamp(1.25rem, 4vw, 4rem)
+                clamp(2rem, 4vw, 4rem);
 
         gap: clamp(1rem, 2vw, 2rem);
     }
+}
+
+/* ============================================
+                Values Section
+   ============================================
+*/
+.about-values {
+    background-image: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+}
+
+.about-values-label {
+    position: relative;
+    color: var(--color-text-inverted);
+
+    padding-left: clamp(2.5rem, calc(3vw + 4.9rem), 16rem);
+    font-size: clamp(0.75rem, calc(1.2vh + 1.2vw), 2rem);
+}
+
+.about-values-label::after {
+    content: "";
+
+    position: absolute;
+    bottom: 50%;
+    left: clamp(2.5rem, calc(3vw), 12rem);
+
+    width: 3rem;
+    height: 0.1em;
+
+    background-color: var(--color-text-inverted);
+}
+
+.about-values-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    padding: 0
+            clamp(2rem, 2vw, 4rem)
+            clamp(2rem, 2vw, 4rem)
+            clamp(2rem, 2vw, 4rem);  
+
+    gap: clamp(1rem, 2vw, 2rem);
+}
+    
+.about-value {
+    position: relative;
+    padding: clamp(0.85rem, 1.25vw, 2rem)
+             clamp(0.85rem, 1.25vw, 2rem);
+
+    border: 2px solid var(--color-border);
+    border-radius: 0.75rem;
+
+    background-color: var(--color-surface);
+}
+
+.about-value::after {
+    content: "";
+
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25);
+
+    pointer-events: none;  
+
+    border-radius: 0.75rem;
+}
+
+
+/* ============================================
+                    Carousel 
+   ============================================
+*/
+.carousel {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none; 
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none; 
+}
+
+.carousel-slide {
+    position: relative;
+    overflow: hidden;
+
+    flex: 0 0 100%;
+    width: 100vw;
+
+    scroll-snap-align: start;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-nav {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    pointer-events: none;
+    
+    padding: 0 0.5rem;
+}
+
+@media screen and (max-width: 767px) {
+.carousel-nav {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    pointer-events: none;
+    padding: 0 clamp(-0.75rem, calc(1vh + 1vw) , -1.25rem);
+}
+
+}
+
+
+.carousel-nav a {
+    pointer-events: auto;
+
+    width: clamp(2rem, calc(2vh + 2vw), 3rem);
+    height: clamp(2rem, calc(2vh + 2vw), 3rem);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-nav a::after {
+    content: "";
+
+    width: clamp(0.5rem, calc(0.75vh + 0.75vw), 1rem);
+    height: clamp(0.5rem, calc(0.75vh + 0.75vw) , 1rem);
+
+    border-top: 2px solid var(--color-text-inverted);
+    border-right: 2px solid var(--color-text-inverted);
+}
+
+.carousel-prev::after {
+    transform: rotate(-135deg);
+}
+
+.carousel-next::after {
+    transform: rotate(45deg);
+}
+
+.carousel-prev {
+    margin-right: auto;
+}
+
+.carousel-next {
+    margin-left: auto;
 }
